@@ -11,10 +11,6 @@
 # All addresses and the length are given in unqualified hexadecimal
 # in delta units.  Any other numeric values are decimal.
 %PSECTS
-$C:\Users\arthu\AppData\Local\Temp\xcAsa3g.\driver_tmp_12.o
-reset_vec CODE 0 0 0 1 2 1
-end_init CODE 0 B B 1 2 1
-config CONFIG 4 2007 2007 1 2 1
 $dist/default/production\acionador_foguete.X.production.o
 cinit CODE 0 C C 5 2 1
 text1 CODE 0 C5 C5 53 2 1
@@ -26,6 +22,10 @@ intentry CODE 0 4 4 7 2 1
 bssBANK0 BANK0 1 17 17 1 1 1
 idataBANK0 CODE 0 16F 16F 1 2 1
 dataBANK0 BANK0 1 18 18 1 1 1
+config CONFIG 4 2007 2007 1 2 1
+$C:\Users\Arthur\AppData\Local\Temp\xcAs208.\driver_tmp_12.o
+reset_vec CODE 0 0 0 1 2 1
+end_init CODE 0 B B 1 2 1
 config CONFIG 4 2007 2007 1 2 1
 # %UNUSED Section
 # This section enumerates the unused ranges of each CLASS. Each entry
@@ -63,113 +63,113 @@ STRING 170-3FF 2
 # All other numeric values are in decimal.
 %LINETAB
 $dist/default/production\acionador_foguete.X.production.o
-C cinit CODE >196:C:\Users\arthu\AppData\Local\Temp\xcAsa3g.\driver_tmp_1.s
-C cinit CODE >199:C:\Users\arthu\AppData\Local\Temp\xcAsa3g.\driver_tmp_1.s
-C cinit CODE >219:C:\Users\arthu\AppData\Local\Temp\xcAsa3g.\driver_tmp_1.s
-D cinit CODE >220:C:\Users\arthu\AppData\Local\Temp\xcAsa3g.\driver_tmp_1.s
-E cinit CODE >224:C:\Users\arthu\AppData\Local\Temp\xcAsa3g.\driver_tmp_1.s
-F cinit CODE >230:C:\Users\arthu\AppData\Local\Temp\xcAsa3g.\driver_tmp_1.s
-F cinit CODE >232:C:\Users\arthu\AppData\Local\Temp\xcAsa3g.\driver_tmp_1.s
-10 cinit CODE >233:C:\Users\arthu\AppData\Local\Temp\xcAsa3g.\driver_tmp_1.s
-4 intentry CODE >28:D:\Documents\MPLABX Projects\acionador_foguete.X\main.c
-154 text3 CODE >28:D:\Documents\MPLABX Projects\acionador_foguete.X\main.c
-154 text3 CODE >29:D:\Documents\MPLABX Projects\acionador_foguete.X\main.c
-15C text3 CODE >30:D:\Documents\MPLABX Projects\acionador_foguete.X\main.c
-15D text3 CODE >31:D:\Documents\MPLABX Projects\acionador_foguete.X\main.c
-15F text3 CODE >32:D:\Documents\MPLABX Projects\acionador_foguete.X\main.c
-164 text3 CODE >33:D:\Documents\MPLABX Projects\acionador_foguete.X\main.c
-166 text3 CODE >34:D:\Documents\MPLABX Projects\acionador_foguete.X\main.c
-166 text3 CODE >35:D:\Documents\MPLABX Projects\acionador_foguete.X\main.c
-167 text3 CODE >36:D:\Documents\MPLABX Projects\acionador_foguete.X\main.c
-168 text3 CODE >38:D:\Documents\MPLABX Projects\acionador_foguete.X\main.c
-118 text2 CODE >40:D:\Documents\MPLABX Projects\acionador_foguete.X\main.c
-11A text2 CODE >41:D:\Documents\MPLABX Projects\acionador_foguete.X\main.c
-122 text2 CODE >42:D:\Documents\MPLABX Projects\acionador_foguete.X\main.c
-124 text2 CODE >42:D:\Documents\MPLABX Projects\acionador_foguete.X\main.c
-12E text2 CODE >43:D:\Documents\MPLABX Projects\acionador_foguete.X\main.c
-131 text2 CODE >43:D:\Documents\MPLABX Projects\acionador_foguete.X\main.c
-134 text2 CODE >43:D:\Documents\MPLABX Projects\acionador_foguete.X\main.c
-140 text2 CODE >44:D:\Documents\MPLABX Projects\acionador_foguete.X\main.c
-143 text2 CODE >44:D:\Documents\MPLABX Projects\acionador_foguete.X\main.c
-146 text2 CODE >44:D:\Documents\MPLABX Projects\acionador_foguete.X\main.c
-153 text2 CODE >45:D:\Documents\MPLABX Projects\acionador_foguete.X\main.c
-C5 text1 CODE >47:D:\Documents\MPLABX Projects\acionador_foguete.X\main.c
-C5 text1 CODE >48:D:\Documents\MPLABX Projects\acionador_foguete.X\main.c
-C5 text1 CODE >49:D:\Documents\MPLABX Projects\acionador_foguete.X\main.c
-C8 text1 CODE >50:D:\Documents\MPLABX Projects\acionador_foguete.X\main.c
-C9 text1 CODE >51:D:\Documents\MPLABX Projects\acionador_foguete.X\main.c
-CB text1 CODE >53:D:\Documents\MPLABX Projects\acionador_foguete.X\main.c
-CC text1 CODE >54:D:\Documents\MPLABX Projects\acionador_foguete.X\main.c
-CE text1 CODE >55:D:\Documents\MPLABX Projects\acionador_foguete.X\main.c
-D0 text1 CODE >56:D:\Documents\MPLABX Projects\acionador_foguete.X\main.c
-DD text1 CODE >57:D:\Documents\MPLABX Projects\acionador_foguete.X\main.c
-DF text1 CODE >58:D:\Documents\MPLABX Projects\acionador_foguete.X\main.c
-EB text1 CODE >59:D:\Documents\MPLABX Projects\acionador_foguete.X\main.c
-EE text1 CODE >61:D:\Documents\MPLABX Projects\acionador_foguete.X\main.c
-F7 text1 CODE >62:D:\Documents\MPLABX Projects\acionador_foguete.X\main.c
-F9 text1 CODE >63:D:\Documents\MPLABX Projects\acionador_foguete.X\main.c
-FB text1 CODE >64:D:\Documents\MPLABX Projects\acionador_foguete.X\main.c
-FC text1 CODE >65:D:\Documents\MPLABX Projects\acionador_foguete.X\main.c
-FD text1 CODE >66:D:\Documents\MPLABX Projects\acionador_foguete.X\main.c
-FE text1 CODE >67:D:\Documents\MPLABX Projects\acionador_foguete.X\main.c
-FF text1 CODE >68:D:\Documents\MPLABX Projects\acionador_foguete.X\main.c
-100 text1 CODE >69:D:\Documents\MPLABX Projects\acionador_foguete.X\main.c
-101 text1 CODE >66:D:\Documents\MPLABX Projects\acionador_foguete.X\main.c
-101 text1 CODE >70:D:\Documents\MPLABX Projects\acionador_foguete.X\main.c
-106 text1 CODE >71:D:\Documents\MPLABX Projects\acionador_foguete.X\main.c
-107 text1 CODE >72:D:\Documents\MPLABX Projects\acionador_foguete.X\main.c
-108 text1 CODE >73:D:\Documents\MPLABX Projects\acionador_foguete.X\main.c
-109 text1 CODE >74:D:\Documents\MPLABX Projects\acionador_foguete.X\main.c
-109 text1 CODE >75:D:\Documents\MPLABX Projects\acionador_foguete.X\main.c
-10A text1 CODE >53:D:\Documents\MPLABX Projects\acionador_foguete.X\main.c
-10A text1 CODE >76:D:\Documents\MPLABX Projects\acionador_foguete.X\main.c
-10F text1 CODE >77:D:\Documents\MPLABX Projects\acionador_foguete.X\main.c
-110 text1 CODE >78:D:\Documents\MPLABX Projects\acionador_foguete.X\main.c
-115 text1 CODE >81:D:\Documents\MPLABX Projects\acionador_foguete.X\main.c
-116 text1 CODE >82:D:\Documents\MPLABX Projects\acionador_foguete.X\main.c
-117 text1 CODE >83:D:\Documents\MPLABX Projects\acionador_foguete.X\main.c
-11 maintext CODE >85:D:\Documents\MPLABX Projects\acionador_foguete.X\main.c
-11 maintext CODE >86:D:\Documents\MPLABX Projects\acionador_foguete.X\main.c
-13 maintext CODE >87:D:\Documents\MPLABX Projects\acionador_foguete.X\main.c
-15 maintext CODE >88:D:\Documents\MPLABX Projects\acionador_foguete.X\main.c
-16 maintext CODE >89:D:\Documents\MPLABX Projects\acionador_foguete.X\main.c
-17 maintext CODE >90:D:\Documents\MPLABX Projects\acionador_foguete.X\main.c
-18 maintext CODE >91:D:\Documents\MPLABX Projects\acionador_foguete.X\main.c
-19 maintext CODE >92:D:\Documents\MPLABX Projects\acionador_foguete.X\main.c
-1A maintext CODE >93:D:\Documents\MPLABX Projects\acionador_foguete.X\main.c
-1B maintext CODE >94:D:\Documents\MPLABX Projects\acionador_foguete.X\main.c
-1D maintext CODE >96:D:\Documents\MPLABX Projects\acionador_foguete.X\main.c
-1E maintext CODE >97:D:\Documents\MPLABX Projects\acionador_foguete.X\main.c
-27 maintext CODE >98:D:\Documents\MPLABX Projects\acionador_foguete.X\main.c
-29 maintext CODE >99:D:\Documents\MPLABX Projects\acionador_foguete.X\main.c
-32 maintext CODE >100:D:\Documents\MPLABX Projects\acionador_foguete.X\main.c
-34 maintext CODE >101:D:\Documents\MPLABX Projects\acionador_foguete.X\main.c
-3D maintext CODE >102:D:\Documents\MPLABX Projects\acionador_foguete.X\main.c
-3F maintext CODE >103:D:\Documents\MPLABX Projects\acionador_foguete.X\main.c
-48 maintext CODE >104:D:\Documents\MPLABX Projects\acionador_foguete.X\main.c
-4A maintext CODE >105:D:\Documents\MPLABX Projects\acionador_foguete.X\main.c
-53 maintext CODE >106:D:\Documents\MPLABX Projects\acionador_foguete.X\main.c
-55 maintext CODE >107:D:\Documents\MPLABX Projects\acionador_foguete.X\main.c
-5E maintext CODE >108:D:\Documents\MPLABX Projects\acionador_foguete.X\main.c
-60 maintext CODE >109:D:\Documents\MPLABX Projects\acionador_foguete.X\main.c
-6C maintext CODE >110:D:\Documents\MPLABX Projects\acionador_foguete.X\main.c
-6E maintext CODE >114:D:\Documents\MPLABX Projects\acionador_foguete.X\main.c
-71 maintext CODE >115:D:\Documents\MPLABX Projects\acionador_foguete.X\main.c
-76 maintext CODE >116:D:\Documents\MPLABX Projects\acionador_foguete.X\main.c
-77 maintext CODE >117:D:\Documents\MPLABX Projects\acionador_foguete.X\main.c
-80 maintext CODE >118:D:\Documents\MPLABX Projects\acionador_foguete.X\main.c
-82 maintext CODE >119:D:\Documents\MPLABX Projects\acionador_foguete.X\main.c
-8B maintext CODE >120:D:\Documents\MPLABX Projects\acionador_foguete.X\main.c
-8D maintext CODE >121:D:\Documents\MPLABX Projects\acionador_foguete.X\main.c
-96 maintext CODE >122:D:\Documents\MPLABX Projects\acionador_foguete.X\main.c
-98 maintext CODE >123:D:\Documents\MPLABX Projects\acionador_foguete.X\main.c
-A1 maintext CODE >124:D:\Documents\MPLABX Projects\acionador_foguete.X\main.c
-A3 maintext CODE >125:D:\Documents\MPLABX Projects\acionador_foguete.X\main.c
-AC maintext CODE >126:D:\Documents\MPLABX Projects\acionador_foguete.X\main.c
-AE maintext CODE >127:D:\Documents\MPLABX Projects\acionador_foguete.X\main.c
-B7 maintext CODE >128:D:\Documents\MPLABX Projects\acionador_foguete.X\main.c
-B8 maintext CODE >130:D:\Documents\MPLABX Projects\acionador_foguete.X\main.c
-C2 maintext CODE >131:D:\Documents\MPLABX Projects\acionador_foguete.X\main.c
+C cinit CODE >196:C:\Users\Arthur\AppData\Local\Temp\xcAs208.\driver_tmp_1.s
+C cinit CODE >199:C:\Users\Arthur\AppData\Local\Temp\xcAs208.\driver_tmp_1.s
+C cinit CODE >219:C:\Users\Arthur\AppData\Local\Temp\xcAs208.\driver_tmp_1.s
+D cinit CODE >220:C:\Users\Arthur\AppData\Local\Temp\xcAs208.\driver_tmp_1.s
+E cinit CODE >224:C:\Users\Arthur\AppData\Local\Temp\xcAs208.\driver_tmp_1.s
+F cinit CODE >230:C:\Users\Arthur\AppData\Local\Temp\xcAs208.\driver_tmp_1.s
+F cinit CODE >232:C:\Users\Arthur\AppData\Local\Temp\xcAs208.\driver_tmp_1.s
+10 cinit CODE >233:C:\Users\Arthur\AppData\Local\Temp\xcAs208.\driver_tmp_1.s
+4 intentry CODE >32:C:\Users\Arthur\Documents\PIC\projetos\acionador_foguete.X\main.c
+154 text3 CODE >32:C:\Users\Arthur\Documents\PIC\projetos\acionador_foguete.X\main.c
+154 text3 CODE >35:C:\Users\Arthur\Documents\PIC\projetos\acionador_foguete.X\main.c
+15C text3 CODE >36:C:\Users\Arthur\Documents\PIC\projetos\acionador_foguete.X\main.c
+15D text3 CODE >37:C:\Users\Arthur\Documents\PIC\projetos\acionador_foguete.X\main.c
+15F text3 CODE >38:C:\Users\Arthur\Documents\PIC\projetos\acionador_foguete.X\main.c
+164 text3 CODE >39:C:\Users\Arthur\Documents\PIC\projetos\acionador_foguete.X\main.c
+166 text3 CODE >40:C:\Users\Arthur\Documents\PIC\projetos\acionador_foguete.X\main.c
+166 text3 CODE >41:C:\Users\Arthur\Documents\PIC\projetos\acionador_foguete.X\main.c
+167 text3 CODE >42:C:\Users\Arthur\Documents\PIC\projetos\acionador_foguete.X\main.c
+168 text3 CODE >44:C:\Users\Arthur\Documents\PIC\projetos\acionador_foguete.X\main.c
+118 text2 CODE >46:C:\Users\Arthur\Documents\PIC\projetos\acionador_foguete.X\main.c
+11A text2 CODE >47:C:\Users\Arthur\Documents\PIC\projetos\acionador_foguete.X\main.c
+122 text2 CODE >48:C:\Users\Arthur\Documents\PIC\projetos\acionador_foguete.X\main.c
+124 text2 CODE >48:C:\Users\Arthur\Documents\PIC\projetos\acionador_foguete.X\main.c
+12E text2 CODE >49:C:\Users\Arthur\Documents\PIC\projetos\acionador_foguete.X\main.c
+131 text2 CODE >49:C:\Users\Arthur\Documents\PIC\projetos\acionador_foguete.X\main.c
+134 text2 CODE >49:C:\Users\Arthur\Documents\PIC\projetos\acionador_foguete.X\main.c
+140 text2 CODE >50:C:\Users\Arthur\Documents\PIC\projetos\acionador_foguete.X\main.c
+143 text2 CODE >50:C:\Users\Arthur\Documents\PIC\projetos\acionador_foguete.X\main.c
+146 text2 CODE >50:C:\Users\Arthur\Documents\PIC\projetos\acionador_foguete.X\main.c
+153 text2 CODE >51:C:\Users\Arthur\Documents\PIC\projetos\acionador_foguete.X\main.c
+C5 text1 CODE >53:C:\Users\Arthur\Documents\PIC\projetos\acionador_foguete.X\main.c
+C5 text1 CODE >54:C:\Users\Arthur\Documents\PIC\projetos\acionador_foguete.X\main.c
+C5 text1 CODE >55:C:\Users\Arthur\Documents\PIC\projetos\acionador_foguete.X\main.c
+C8 text1 CODE >56:C:\Users\Arthur\Documents\PIC\projetos\acionador_foguete.X\main.c
+C9 text1 CODE >57:C:\Users\Arthur\Documents\PIC\projetos\acionador_foguete.X\main.c
+CB text1 CODE >59:C:\Users\Arthur\Documents\PIC\projetos\acionador_foguete.X\main.c
+CC text1 CODE >60:C:\Users\Arthur\Documents\PIC\projetos\acionador_foguete.X\main.c
+CE text1 CODE >61:C:\Users\Arthur\Documents\PIC\projetos\acionador_foguete.X\main.c
+D0 text1 CODE >62:C:\Users\Arthur\Documents\PIC\projetos\acionador_foguete.X\main.c
+DD text1 CODE >63:C:\Users\Arthur\Documents\PIC\projetos\acionador_foguete.X\main.c
+DF text1 CODE >64:C:\Users\Arthur\Documents\PIC\projetos\acionador_foguete.X\main.c
+EB text1 CODE >65:C:\Users\Arthur\Documents\PIC\projetos\acionador_foguete.X\main.c
+EE text1 CODE >67:C:\Users\Arthur\Documents\PIC\projetos\acionador_foguete.X\main.c
+F7 text1 CODE >68:C:\Users\Arthur\Documents\PIC\projetos\acionador_foguete.X\main.c
+F9 text1 CODE >69:C:\Users\Arthur\Documents\PIC\projetos\acionador_foguete.X\main.c
+FB text1 CODE >70:C:\Users\Arthur\Documents\PIC\projetos\acionador_foguete.X\main.c
+FC text1 CODE >71:C:\Users\Arthur\Documents\PIC\projetos\acionador_foguete.X\main.c
+FD text1 CODE >72:C:\Users\Arthur\Documents\PIC\projetos\acionador_foguete.X\main.c
+FE text1 CODE >73:C:\Users\Arthur\Documents\PIC\projetos\acionador_foguete.X\main.c
+FF text1 CODE >74:C:\Users\Arthur\Documents\PIC\projetos\acionador_foguete.X\main.c
+100 text1 CODE >75:C:\Users\Arthur\Documents\PIC\projetos\acionador_foguete.X\main.c
+101 text1 CODE >72:C:\Users\Arthur\Documents\PIC\projetos\acionador_foguete.X\main.c
+101 text1 CODE >76:C:\Users\Arthur\Documents\PIC\projetos\acionador_foguete.X\main.c
+106 text1 CODE >77:C:\Users\Arthur\Documents\PIC\projetos\acionador_foguete.X\main.c
+107 text1 CODE >78:C:\Users\Arthur\Documents\PIC\projetos\acionador_foguete.X\main.c
+108 text1 CODE >79:C:\Users\Arthur\Documents\PIC\projetos\acionador_foguete.X\main.c
+109 text1 CODE >80:C:\Users\Arthur\Documents\PIC\projetos\acionador_foguete.X\main.c
+109 text1 CODE >81:C:\Users\Arthur\Documents\PIC\projetos\acionador_foguete.X\main.c
+10A text1 CODE >59:C:\Users\Arthur\Documents\PIC\projetos\acionador_foguete.X\main.c
+10A text1 CODE >82:C:\Users\Arthur\Documents\PIC\projetos\acionador_foguete.X\main.c
+10F text1 CODE >83:C:\Users\Arthur\Documents\PIC\projetos\acionador_foguete.X\main.c
+110 text1 CODE >84:C:\Users\Arthur\Documents\PIC\projetos\acionador_foguete.X\main.c
+115 text1 CODE >87:C:\Users\Arthur\Documents\PIC\projetos\acionador_foguete.X\main.c
+116 text1 CODE >88:C:\Users\Arthur\Documents\PIC\projetos\acionador_foguete.X\main.c
+117 text1 CODE >89:C:\Users\Arthur\Documents\PIC\projetos\acionador_foguete.X\main.c
+11 maintext CODE >91:C:\Users\Arthur\Documents\PIC\projetos\acionador_foguete.X\main.c
+11 maintext CODE >92:C:\Users\Arthur\Documents\PIC\projetos\acionador_foguete.X\main.c
+13 maintext CODE >93:C:\Users\Arthur\Documents\PIC\projetos\acionador_foguete.X\main.c
+15 maintext CODE >94:C:\Users\Arthur\Documents\PIC\projetos\acionador_foguete.X\main.c
+16 maintext CODE >95:C:\Users\Arthur\Documents\PIC\projetos\acionador_foguete.X\main.c
+17 maintext CODE >96:C:\Users\Arthur\Documents\PIC\projetos\acionador_foguete.X\main.c
+18 maintext CODE >97:C:\Users\Arthur\Documents\PIC\projetos\acionador_foguete.X\main.c
+19 maintext CODE >98:C:\Users\Arthur\Documents\PIC\projetos\acionador_foguete.X\main.c
+1A maintext CODE >99:C:\Users\Arthur\Documents\PIC\projetos\acionador_foguete.X\main.c
+1B maintext CODE >100:C:\Users\Arthur\Documents\PIC\projetos\acionador_foguete.X\main.c
+1D maintext CODE >102:C:\Users\Arthur\Documents\PIC\projetos\acionador_foguete.X\main.c
+1E maintext CODE >103:C:\Users\Arthur\Documents\PIC\projetos\acionador_foguete.X\main.c
+27 maintext CODE >104:C:\Users\Arthur\Documents\PIC\projetos\acionador_foguete.X\main.c
+29 maintext CODE >105:C:\Users\Arthur\Documents\PIC\projetos\acionador_foguete.X\main.c
+32 maintext CODE >106:C:\Users\Arthur\Documents\PIC\projetos\acionador_foguete.X\main.c
+34 maintext CODE >107:C:\Users\Arthur\Documents\PIC\projetos\acionador_foguete.X\main.c
+3D maintext CODE >108:C:\Users\Arthur\Documents\PIC\projetos\acionador_foguete.X\main.c
+3F maintext CODE >109:C:\Users\Arthur\Documents\PIC\projetos\acionador_foguete.X\main.c
+48 maintext CODE >110:C:\Users\Arthur\Documents\PIC\projetos\acionador_foguete.X\main.c
+4A maintext CODE >111:C:\Users\Arthur\Documents\PIC\projetos\acionador_foguete.X\main.c
+53 maintext CODE >112:C:\Users\Arthur\Documents\PIC\projetos\acionador_foguete.X\main.c
+55 maintext CODE >113:C:\Users\Arthur\Documents\PIC\projetos\acionador_foguete.X\main.c
+5E maintext CODE >114:C:\Users\Arthur\Documents\PIC\projetos\acionador_foguete.X\main.c
+60 maintext CODE >115:C:\Users\Arthur\Documents\PIC\projetos\acionador_foguete.X\main.c
+6C maintext CODE >116:C:\Users\Arthur\Documents\PIC\projetos\acionador_foguete.X\main.c
+6E maintext CODE >120:C:\Users\Arthur\Documents\PIC\projetos\acionador_foguete.X\main.c
+71 maintext CODE >121:C:\Users\Arthur\Documents\PIC\projetos\acionador_foguete.X\main.c
+76 maintext CODE >122:C:\Users\Arthur\Documents\PIC\projetos\acionador_foguete.X\main.c
+77 maintext CODE >123:C:\Users\Arthur\Documents\PIC\projetos\acionador_foguete.X\main.c
+80 maintext CODE >124:C:\Users\Arthur\Documents\PIC\projetos\acionador_foguete.X\main.c
+82 maintext CODE >125:C:\Users\Arthur\Documents\PIC\projetos\acionador_foguete.X\main.c
+8B maintext CODE >126:C:\Users\Arthur\Documents\PIC\projetos\acionador_foguete.X\main.c
+8D maintext CODE >127:C:\Users\Arthur\Documents\PIC\projetos\acionador_foguete.X\main.c
+96 maintext CODE >128:C:\Users\Arthur\Documents\PIC\projetos\acionador_foguete.X\main.c
+98 maintext CODE >129:C:\Users\Arthur\Documents\PIC\projetos\acionador_foguete.X\main.c
+A1 maintext CODE >130:C:\Users\Arthur\Documents\PIC\projetos\acionador_foguete.X\main.c
+A3 maintext CODE >131:C:\Users\Arthur\Documents\PIC\projetos\acionador_foguete.X\main.c
+AC maintext CODE >132:C:\Users\Arthur\Documents\PIC\projetos\acionador_foguete.X\main.c
+AE maintext CODE >133:C:\Users\Arthur\Documents\PIC\projetos\acionador_foguete.X\main.c
+B7 maintext CODE >134:C:\Users\Arthur\Documents\PIC\projetos\acionador_foguete.X\main.c
+B8 maintext CODE >136:C:\Users\Arthur\Documents\PIC\projetos\acionador_foguete.X\main.c
+C2 maintext CODE >137:C:\Users\Arthur\Documents\PIC\projetos\acionador_foguete.X\main.c
 # %SYMTAB Section
 # An enumeration of all symbols in the program.
 # The beginning of the section is indicated by %SYMTAB.
@@ -193,30 +193,30 @@ __HidataBANK0 0 0 ABS 0 idataBANK0 -
 __Heeprom_data 0 0 EEDATA 3 eeprom_data -
 __L__absolute__ 0 0 ABS 0 __absolute__ -
 __Hstrings 0 0 ABS 0 strings -
-___sp 0 0 STACK 2 stack C:\Users\arthu\AppData\Local\Temp\xcAsa3g.\driver_tmp_12.o
+___sp 0 0 STACK 2 stack C:\Users\Arthur\AppData\Local\Temp\xcAs208.\driver_tmp_12.o
 _main 22 0 CODE 0 maintext dist/default/production\acionador_foguete.X.production.o
 btemp 4E 0 ABS 0 - dist/default/production\acionador_foguete.X.production.o
-___stack_hi 0 0 STACK 2 stack C:\Users\arthu\AppData\Local\Temp\xcAsa3g.\driver_tmp_12.o
-___stack_lo 0 0 STACK 2 stack C:\Users\arthu\AppData\Local\Temp\xcAsa3g.\driver_tmp_12.o
-start 16 0 CODE 0 init C:\Users\arthu\AppData\Local\Temp\xcAsa3g.\driver_tmp_12.o
+___stack_hi 0 0 STACK 2 stack C:\Users\Arthur\AppData\Local\Temp\xcAs208.\driver_tmp_12.o
+___stack_lo 0 0 STACK 2 stack C:\Users\Arthur\AppData\Local\Temp\xcAs208.\driver_tmp_12.o
+start 16 0 CODE 0 init C:\Users\Arthur\AppData\Local\Temp\xcAs208.\driver_tmp_12.o
 _OPTION_REGbits 81 0 ABS 0 - dist/default/production\acionador_foguete.X.production.o
 __LidataBANK0 0 0 ABS 0 idataBANK0 -
 __Hpowerup 0 0 CODE 0 powerup -
-intlevel0 0 0 ENTRY 0 functab C:\Users\arthu\AppData\Local\Temp\xcAsa3g.\driver_tmp_12.o
-intlevel1 0 0 ENTRY 0 functab C:\Users\arthu\AppData\Local\Temp\xcAsa3g.\driver_tmp_12.o
-intlevel2 0 0 ENTRY 0 functab C:\Users\arthu\AppData\Local\Temp\xcAsa3g.\driver_tmp_12.o
-intlevel3 0 0 ENTRY 0 functab C:\Users\arthu\AppData\Local\Temp\xcAsa3g.\driver_tmp_12.o
-intlevel4 0 0 ENTRY 0 functab C:\Users\arthu\AppData\Local\Temp\xcAsa3g.\driver_tmp_12.o
-intlevel5 0 0 ENTRY 0 functab C:\Users\arthu\AppData\Local\Temp\xcAsa3g.\driver_tmp_12.o
+intlevel0 0 0 ENTRY 0 functab C:\Users\Arthur\AppData\Local\Temp\xcAs208.\driver_tmp_12.o
+intlevel1 0 0 ENTRY 0 functab C:\Users\Arthur\AppData\Local\Temp\xcAs208.\driver_tmp_12.o
+intlevel2 0 0 ENTRY 0 functab C:\Users\Arthur\AppData\Local\Temp\xcAs208.\driver_tmp_12.o
+intlevel3 0 0 ENTRY 0 functab C:\Users\Arthur\AppData\Local\Temp\xcAs208.\driver_tmp_12.o
+intlevel4 0 0 ENTRY 0 functab C:\Users\Arthur\AppData\Local\Temp\xcAs208.\driver_tmp_12.o
+intlevel5 0 0 ENTRY 0 functab C:\Users\Arthur\AppData\Local\Temp\xcAs208.\driver_tmp_12.o
 wtemp0 4E 0 ABS 0 - dist/default/production\acionador_foguete.X.production.o
 __Hfunctab 0 0 ENTRY 0 functab -
 __Hclrtext 0 0 ABS 0 clrtext -
 __Lmaintext 0 0 ABS 0 maintext -
-___stackhi 0 0 ABS 0 - C:\Users\arthu\AppData\Local\Temp\xcAsa3g.\driver_tmp_12.o
-___stacklo 0 0 ABS 0 - C:\Users\arthu\AppData\Local\Temp\xcAsa3g.\driver_tmp_12.o
+___stackhi 0 0 ABS 0 - C:\Users\Arthur\AppData\Local\Temp\xcAs208.\driver_tmp_12.o
+___stacklo 0 0 ABS 0 - C:\Users\Arthur\AppData\Local\Temp\xcAs208.\driver_tmp_12.o
 start_initialization 18 0 CODE 0 cinit dist/default/production\acionador_foguete.X.production.o
 __pcstackBANK0 C 0 BANK0 1 cstackBANK0 dist/default/production\acionador_foguete.X.production.o
-___int_sp 0 0 STACK 2 stack C:\Users\arthu\AppData\Local\Temp\xcAsa3g.\driver_tmp_12.o
+___int_sp 0 0 STACK 2 stack C:\Users\Arthur\AppData\Local\Temp\xcAs208.\driver_tmp_12.o
 __Hbank0 0 0 ABS 0 bank0 -
 __Hbank1 0 0 BANK1 1 bank1 -
 __Hcinit 22 0 CODE 0 cinit -
@@ -256,7 +256,7 @@ saved_w 4E 0 ABS 0 - dist/default/production\acionador_foguete.X.production.o
 _showNumber 230 0 CODE 0 text2 dist/default/production\acionador_foguete.X.production.o
 __end_of_isr 2DE 0 CODE 0 text3 dist/default/production\acionador_foguete.X.production.o
 __Lintentry 8 0 CODE 0 intentry -
-reset_vec 0 0 CODE 0 reset_vec C:\Users\arthu\AppData\Local\Temp\xcAsa3g.\driver_tmp_12.o
+reset_vec 0 0 CODE 0 reset_vec C:\Users\Arthur\AppData\Local\Temp\xcAs208.\driver_tmp_12.o
 __pdataBANK0 18 0 BANK0 1 dataBANK0 dist/default/production\acionador_foguete.X.production.o
 __LbssBANK0 0 0 ABS 0 bssBANK0 -
 showNumber@n 10 0 BANK0 1 cstackBANK0 dist/default/production\acionador_foguete.X.production.o
@@ -285,8 +285,8 @@ __Leeprom_data 0 0 EEDATA 3 eeprom_data -
 __H__absolute__ 0 0 ABS 0 __absolute__ -
 _counter_value 18 0 BANK0 1 dataBANK0 dist/default/production\acionador_foguete.X.production.o
 __Lreset_vec 0 0 CODE 0 reset_vec -
-___heap_hi 0 0 ABS 0 - C:\Users\arthu\AppData\Local\Temp\xcAsa3g.\driver_tmp_12.o
-___heap_lo 0 0 ABS 0 - C:\Users\arthu\AppData\Local\Temp\xcAsa3g.\driver_tmp_12.o
+___heap_hi 0 0 ABS 0 - C:\Users\Arthur\AppData\Local\Temp\xcAs208.\driver_tmp_12.o
+___heap_lo 0 0 ABS 0 - C:\Users\Arthur\AppData\Local\Temp\xcAs208.\driver_tmp_12.o
 __end_of__initialization 1E 0 CODE 0 cinit dist/default/production\acionador_foguete.X.production.o
 __Lfunctab 0 0 ENTRY 0 functab -
 __pidataBANK0 2DE 0 CODE 0 idataBANK0 dist/default/production\acionador_foguete.X.production.o
@@ -304,8 +304,8 @@ __HdataBANK0 0 0 ABS 0 dataBANK0 -
 __initialization 18 0 CODE 0 cinit dist/default/production\acionador_foguete.X.production.o
 __pbssBANK0 17 0 BANK0 1 bssBANK0 dist/default/production\acionador_foguete.X.production.o
 _counter 17 0 BANK0 1 bssBANK0 dist/default/production\acionador_foguete.X.production.o
-___int_stack_hi 0 0 STACK 2 stack C:\Users\arthu\AppData\Local\Temp\xcAsa3g.\driver_tmp_12.o
-___int_stack_lo 0 0 STACK 2 stack C:\Users\arthu\AppData\Local\Temp\xcAsa3g.\driver_tmp_12.o
+___int_stack_hi 0 0 STACK 2 stack C:\Users\Arthur\AppData\Local\Temp\xcAs208.\driver_tmp_12.o
+___int_stack_lo 0 0 STACK 2 stack C:\Users\Arthur\AppData\Local\Temp\xcAs208.\driver_tmp_12.o
 # %SPLITSTAB Section
 # This section enumerates all the psect splits performed by the assembler.
 # The beginning of the section is indicated by %SPLITSTAB.

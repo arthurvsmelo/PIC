@@ -6,16 +6,19 @@
  */
 
 /* CONFIGURTION BITS */
+/* Oscilador cristal externo, 
+   Watchdog ativo,
+   Powerup timer desativado,
+   Code Protection desativado */
 #pragma config FOSC = XT, WDTE = ON, PWRTE = OFF, CP = OFF
 
 #include <xc.h>
 #include <pic16f84.h>
-#include "HD44780.h"
 
-#define _XTAL_FREQ 4000000
-#define MOSFET_SIGNAL PORTBbits.RB3
+#define _XTAL_FREQ    4000000
+#define RELAY_SIGNAL  PORTBbits.RB3
 #define ENABLE_SWITCH PORTBbits.RB1
-#define INC_BUTTON    PORTBbits.RB0
+#define DEC_BUTTON    PORTBbits.RB0
 #define TRIGGER       PORTBbits.RB2
 #define BCD_A         PORTAbits.RA0
 #define BCD_B         PORTAbits.RA1
@@ -27,6 +30,8 @@ uint8_t counter_value = 5;
 uint8_t counter = 0;
 
 void __interrupt() isr(){
+    /* não é necessário verificar a fonte de interrupção pois 
+       só está configurado interrupção no pino RB0/INT0 */
     if(INTCONbits.INTE && INTCONbits.INTF){
         INTCONbits.GIE = 0;
         counter_value--;
@@ -48,7 +53,7 @@ void showNumber(uint8_t n) {
 void triggerCountdown(void) {
     do {
         counter = counter_value;
-		INTCONbits.GIE = 0;
+		INTCONbits.GIE = 0;     /* desativa as interrupções */
         showNumber(counter);
         
 		while(TRIGGER) {
@@ -61,15 +66,15 @@ void triggerCountdown(void) {
 			
 			if (counter < 1 && TRIGGER) {
 				showNumber(counter);
-				MOSFET_SIGNAL = 1;
-				BUZZER = 1;
+				RELAY_SIGNAL = 0;           /* ativa o relé */
+				BUZZER = 1;                 /* emite som de ativação */
 				CLRWDT();
 				while(TRIGGER) {
-					MOSFET_SIGNAL = 1;
-					BUZZER = 1;
+					RELAY_SIGNAL = 0;/* enquanto o botão estiver pressionado, */
+					BUZZER = 1;      /* o relé e o som estarão ativos */
 					CLRWDT();
 				}
-				MOSFET_SIGNAL = 0;
+				RELAY_SIGNAL = 1;      /* ao soltar o botão, desliga o relé */
 				BUZZER = 0;
 				return;
 			}
@@ -79,21 +84,21 @@ void triggerCountdown(void) {
     }
 	while(ENABLE_SWITCH);
     
-	INTCONbits.GIE = 1;
+	INTCONbits.GIE = 1;         /* ativa novamente as interrupções */
 	CLRWDT();
 }
 
 void main(void){
-    TRISA = 0b00000000;                          /* todos os pinos em output */
-    TRISB = 0b00000111;                          /* RB0, RB1 e RB2 input e RB3, RB7 output */
-    OPTION_REGbits.nRBPU = 1;                    /* desativa resistor de pullup */
-    OPTION_REGbits.INTEDG = 1;                   /* rising edge */
-	OPTION_REGbits.T0CS = 0;                     /* timer0 clock source: clk interno */
-    INTCONbits.INTE = 1;                         /* habilita interrupcao externa */
-    INTCONbits.GIE = 1;                          /* habilita interrupcoes */
-    INTCONbits.INTF = 0;                         /* limpa flag de interrupcao */
-    MOSFET_SIGNAL = 0;
-  
+    TRISA = 0b00000000;            /* todos os pinos em output */
+    TRISB = 0b00000111;            /* RB0, RB1 e RB2 input e RB3, RB7 output */
+    OPTION_REGbits.nRBPU = 1;      /* desativa resistor de pullup */
+    OPTION_REGbits.INTEDG = 1;     /* rising edge */
+	OPTION_REGbits.T0CS = 0;       /* timer0 clock source: clk interno */
+    INTCONbits.INTE = 1;           /* habilita interrupcao externa */
+    INTCONbits.GIE = 1;            /* habilita interrupcoes */
+    INTCONbits.INTF = 0;           /* limpa flag de interrupcao */
+    RELAY_SIGNAL = 1;              /* relé é ativo em 0 */
+    /* sinal sonoro de inicialização */
 	BUZZER = 1;
 	__delay_ms(100);
 	BUZZER = 0;
