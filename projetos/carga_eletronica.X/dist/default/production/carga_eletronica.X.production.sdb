@@ -3,115 +3,142 @@
 [d edition pro ]
 [d chip 16F877A ]
 [d frameptr 0 ]
-"10 D:\Program Files\Microchip\xc8\v2.50\pic\sources\c90\common\sprcadd.c
+"10 C:\Program Files\Microchip\xc8\v2.50\pic\sources\c99\common\sprcadd.c
 [v ___fladd __fladd `(d  1 e 4 0 ]
-"13 D:\Program Files\Microchip\xc8\v2.50\pic\sources\c90\common\sprintf.c
-[v _sprintf sprintf `(i  1 e 2 0 ]
-"4 D:\Program Files\Microchip\xc8\v2.50\pic\sources\c90\common\Umul8_16.c
+"4 C:\Program Files\Microchip\xc8\v2.50\pic\sources\c99\common\Umul8_16.c
 [v __Umul8_16 _Umul8_16 `(ui  1 e 2 0 ]
-"6 D:\Program Files\Microchip\xc8\v2.50\pic\sources\c90\pic\__eeprom.c
+"6 C:\Program Files\Microchip\xc8\v2.50\pic\sources\c99\pic\__eeprom.c
 [v ___eecpymem __eecpymem `(v  1 e 1 0 ]
 "39
 [v ___memcpyee __memcpyee `(v  1 e 1 0 ]
-"13 D:\Documents\MPLABX Projects\carga_eletronica.X\HD44780.c
-[v _pulse_enable pulse_enable `(v  1 e 1 0 ]
-"22
-[v _lcd_write_nibble lcd_write_nibble `(v  1 e 1 0 ]
-"34
-[v _lcd_write_char lcd_write_char `(v  1 e 1 0 ]
-"42
-[v _lcd_command lcd_command `(v  1 e 1 0 ]
-"51
-[v _lcd_init lcd_init `(v  1 e 1 0 ]
-"79
-[v _lcd_clear lcd_clear `(v  1 e 1 0 ]
-"99
-[v _lcd_blink lcd_blink `(v  1 e 1 0 ]
-"109
-[v _lcd_set_cursor lcd_set_cursor `(v  1 e 1 0 ]
-"120
-[v _lcd_print lcd_print `(v  1 e 1 0 ]
-"22 D:\Documents\MPLABX Projects\carga_eletronica.X\main.c
-[v _main main `(i  1 e 2 0 ]
-[s S52 . 1 `uc 1 RD0 1 0 :1:0 
-`uc 1 RD1 1 0 :1:1 
-`uc 1 RD2 1 0 :1:2 
-`uc 1 RD3 1 0 :1:3 
-`uc 1 RD4 1 0 :1:4 
-`uc 1 RD5 1 0 :1:5 
-`uc 1 RD6 1 0 :1:6 
-`uc 1 RD7 1 0 :1:7 
-]
-"357 D:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8\pic\include\proc\pic16f877a.h
-[u S61 . 1 `S52 1 . 1 0 ]
-[v _PORTDbits PORTDbits `VES61  1 e 1 @8 ]
+"18 C:\Users\Arthur\MPLABXProjects\carga_eletronica.X\lcd.c
+[v _LCD_Out LCD_Out `(v  1 e 1 0 ]
+"50
+[v _LCD_Write LCD_Write `(v  1 e 1 0 ]
+"61
+[v _LCD_Init LCD_Init `(i  1 e 2 0 ]
+"119
+[v _LCD_putc LCD_putc `(v  1 e 1 0 ]
+"144
+[v _LCD_putrs LCD_putrs `(v  1 e 1 0 ]
+"23 C:\Users\Arthur\MPLABXProjects\carga_eletronica.X\main.c
+[v _main main `(v  1 e 1 0 ]
+"166 C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8\pic\include\proc\pic16f877a.h
+[v _PORTA PORTA `VEuc  1 e 1 @5 ]
+"216
+[v _PORTB PORTB `VEuc  1 e 1 @6 ]
+"278
+[v _PORTC PORTC `VEuc  1 e 1 @7 ]
+"340
+[v _PORTD PORTD `VEuc  1 e 1 @8 ]
+"402
+[v _PORTE PORTE `VEuc  1 e 1 @9 ]
+"1325
+[v _TRISA TRISA `VEuc  1 e 1 @133 ]
+"1375
+[v _TRISB TRISB `VEuc  1 e 1 @134 ]
+"1437
+[v _TRISC TRISC `VEuc  1 e 1 @135 ]
 "1499
 [v _TRISD TRISD `VEuc  1 e 1 @136 ]
-"22 D:\Documents\MPLABX Projects\carga_eletronica.X\main.c
-[v _main main `(i  1 e 2 0 ]
+"1561
+[v _TRISE TRISE `VEuc  1 e 1 @137 ]
+[s S103 . 1 `uc 1 CM 1 0 :3:0 
+`uc 1 CIS 1 0 :1:3 
+`uc 1 C1INV 1 0 :1:4 
+`uc 1 C2INV 1 0 :1:5 
+`uc 1 C1OUT 1 0 :1:6 
+`uc 1 C2OUT 1 0 :1:7 
+]
+"2107
+[s S110 . 1 `uc 1 CM0 1 0 :1:0 
+`uc 1 CM1 1 0 :1:1 
+`uc 1 CM2 1 0 :1:2 
+]
+[u S114 . 1 `S103 1 . 1 0 `S110 1 . 1 0 ]
+[v _CMCONbits CMCONbits `VES114  1 e 1 @156 ]
+[s S79 . 1 `uc 1 PCFG 1 0 :4:0 
+`uc 1 . 1 0 :2:4 
+`uc 1 ADCS2 1 0 :1:6 
+`uc 1 ADFM 1 0 :1:7 
+]
+"2248
+[s S84 . 1 `uc 1 PCFG0 1 0 :1:0 
+`uc 1 PCFG1 1 0 :1:1 
+`uc 1 PCFG2 1 0 :1:2 
+`uc 1 PCFG3 1 0 :1:3 
+]
+[u S89 . 1 `S79 1 . 1 0 `S84 1 . 1 0 ]
+[v _ADCON1bits ADCON1bits `VES89  1 e 1 @159 ]
+[s S22 . 5 `*.39VEuc 1 PORT 2 0 `uc 1 RS 1 2 :3:0 
+`uc 1 EN 1 2 :3:3 
+`uc 1 D4 1 3 :3:0 
+`uc 1 D5 1 3 :3:3 
+`uc 1 D6 1 4 :3:0 
+`uc 1 D7 1 4 :3:3 
+]
+"16 C:\Users\Arthur\MPLABXProjects\carga_eletronica.X\lcd.c
+[v _lcd lcd `S22  1 e 5 0 ]
+"23 C:\Users\Arthur\MPLABXProjects\carga_eletronica.X\main.c
+[v _main main `(v  1 e 1 0 ]
 {
-"34
-} 0
-"109 D:\Documents\MPLABX Projects\carga_eletronica.X\HD44780.c
-[v _lcd_set_cursor lcd_set_cursor `(v  1 e 1 0 ]
-{
-[v lcd_set_cursor@col col `uc  1 p 1 wreg ]
-[v lcd_set_cursor@col col `uc  1 p 1 wreg ]
-[v lcd_set_cursor@row row `uc  1 p 1 9 ]
-"111
-[v lcd_set_cursor@col col `uc  1 p 1 12 ]
-"118
-} 0
-"120
-[v _lcd_print lcd_print `(v  1 e 1 0 ]
-{
-[v lcd_print@str str `*.26DCuc  1 p 2 9 ]
-"126
-} 0
-"34
-[v _lcd_write_char lcd_write_char `(v  1 e 1 0 ]
-{
-[v lcd_write_char@data data `uc  1 p 1 wreg ]
-[v lcd_write_char@data data `uc  1 p 1 wreg ]
-[v lcd_write_char@data data `uc  1 p 1 8 ]
-"40
-} 0
-"51
-[v _lcd_init lcd_init `(v  1 e 1 0 ]
-{
-"77
-} 0
-"79
-[v _lcd_clear lcd_clear `(v  1 e 1 0 ]
-{
-"82
-} 0
-"99
-[v _lcd_blink lcd_blink `(v  1 e 1 0 ]
-{
-"102
-} 0
-"42
-[v _lcd_command lcd_command `(v  1 e 1 0 ]
-{
-[v lcd_command@cmd cmd `uc  1 p 1 wreg ]
-[v lcd_command@cmd cmd `uc  1 p 1 wreg ]
+"37
+[v main@c c `uc  1 a 1 8 ]
+"28
+[v main@lcd lcd `S22  1 a 5 3 ]
+"26
+[v main@F1029 F1029 `S22  1 s 5 F1029 ]
 "44
-[v lcd_command@cmd cmd `uc  1 p 1 8 ]
-"49
 } 0
-"22
-[v _lcd_write_nibble lcd_write_nibble `(v  1 e 1 0 ]
+"144 C:\Users\Arthur\MPLABXProjects\carga_eletronica.X\lcd.c
+[v _LCD_putrs LCD_putrs `(v  1 e 1 0 ]
 {
-[v lcd_write_nibble@ch ch `uc  1 p 1 wreg ]
-[v lcd_write_nibble@ch ch `uc  1 p 1 wreg ]
-[v lcd_write_nibble@rs rs `uc  1 p 1 2 ]
-"24
-[v lcd_write_nibble@ch ch `uc  1 p 1 5 ]
-"32
+"146
+[v LCD_putrs@i i `i  1 a 2 7 ]
+"144
+[v LCD_putrs@a a `*.24DCuc  1 p 1 6 ]
+"150
 } 0
-"13
-[v _pulse_enable pulse_enable `(v  1 e 1 0 ]
+"119
+[v _LCD_putc LCD_putc `(v  1 e 1 0 ]
 {
+[v LCD_putc@c c `uc  1 p 1 wreg ]
+[v LCD_putc@c c `uc  1 p 1 wreg ]
+"121
+[v LCD_putc@c c `uc  1 p 1 5 ]
+"134
+} 0
+"61
+[v _LCD_Init LCD_Init `(i  1 e 2 0 ]
+{
+"112
+[v LCD_Init@cmd cmd `uc  1 a 1 13 ]
+[s S22 . 5 `*.39VEuc 1 PORT 2 0 `uc 1 RS 1 2 :3:0 
+`uc 1 EN 1 2 :3:3 
+`uc 1 D4 1 3 :3:0 
+`uc 1 D5 1 3 :3:3 
+`uc 1 D6 1 4 :3:0 
+`uc 1 D7 1 4 :3:3 
+]
+"61
+[v LCD_Init@display display `S22  1 p 5 6 ]
+"117
+} 0
+"50
+[v _LCD_Write LCD_Write `(v  1 e 1 0 ]
+{
+[v LCD_Write@c c `uc  1 p 1 wreg ]
+[v LCD_Write@c c `uc  1 p 1 wreg ]
+"52
+[v LCD_Write@c c `uc  1 p 1 5 ]
+"59
+} 0
+"18
+[v _LCD_Out LCD_Out `(v  1 e 1 0 ]
+{
+[v LCD_Out@c c `uc  1 p 1 wreg ]
+[v LCD_Out@c c `uc  1 p 1 wreg ]
 "20
+[v LCD_Out@c c `uc  1 p 1 2 ]
+"48
 } 0
