@@ -72,6 +72,8 @@
 #pragma config ALTCMP2 = DISABLE        // Alternate Comparator 2 Input Enable bit (C2INC is on RA4 and C2IND is on RB4)
 #pragma config SMB3EN = NORMAL          // SM Bus Enable (Normal SMBus input levels)
 
+#define FCY 4000000UL // fosc / 2
+
 #include <xc.h>
 
 void gpioInit(void) {
@@ -107,17 +109,159 @@ void interruptInit(void) {
     IFS1bits.IOCIF = 0;    // clear global IOC flag
     IEC1bits.IOCIE = 1;    // enable IOC interrupt
 }
-/*
-void uart1Init(uint16_t baud) {
-    // uart LCD
-    
+
+void pin_peripheral_select(void){
+    //associa pinos à funcionalidade uart, UART1 e UART2
+    RPINR18bits.U1RXR = 0x0000;    // RB0  -> U1RX: UART1
+    // ver datasheet na página 228 n contrast to inputs, the outputs of the Peripheral Pin Select options are mapped on the basis of the pin...
+    RPINR19bits.U2RXR = 0x000A;    // RB10 -> U2RX: UART2
+    RPOR5bits.RP11R   = 0x0003;    // RB11 -> U2TX: UART2  
 }
 
-void uart2Init(uint16_t baud) {
-    // uart RADIO
+void uart1_init(uint16_t baud){
+    // fórmula do baud rate:
+    // FCY = F_OSCILADOR/2
+    // U1BRG = (FCY / (4 * baudrate)) - 1
+    // U1BRG = (4000000 / (4 * 62500)) - 1 = 15
     
+    U1BRG = (uint16_t)((FCY / (4 * baud)) - 1);
+ 
+    U1MODEbits.USIDL = 1; //disable quando idle 
+    U1MODEbits.IREN = 0; //disable InfraRed encoder
+    U1MODEbits.RTSMD = 1; //disabilita ready-to-send
+   
+    U1MODEbits.UEN0 = 0; //ready-to-sendo e ready-to-receive desabilitados dos pinos
+    U1MODEbits.UEN1 = 0;
+    
+    U1MODEbits.WAKE = 0; //desabilita wake no rx
+    U1MODEbits.LPBACK = 0; //desabilita loopback(?)
+    U1MODEbits.ABAUD = 0; //desabilita auto-baud
+    U1MODEbits.URXINV = 0; //sinal rx idle com '0'
+    U1MODEbits.BRGH = 1; //fast baud rate; baud = FCY/(4*(U1BRG + 1))
+    
+    //define formato dos dados
+    U1MODEbits.PDSEL0 = 0; // sem bit de paridade
+    U1MODEbits.PDSEL = 0; //8bits
+    U1MODEbits.STSEL = 0; //1 stop bit
+
+    //seta interrupt qnd ultimo bit é enviado do TSR, transmissão completa
+    U1STAbits.UTXISEL0 = 1;
+    U1STAbits.UTXISEL1 = 0;
+    
+    U1STAbits.UTXINV = 0; //idle state é 0 
+    U1STAbits.UTXBRK = 0; //desabilita sync break
+    
+    //interrupt da recepcao qnd RSR é transmitido para buffer.
+    U1STAbits.URXISEL0 = 0;
+    U1STAbits.URXISEL1 = 0;
+    
+    U1MODEbits.UARTEN = 1; // Enable UART
+    IEC0bits.U1RXIE = 1;
+    U1STAbits.UTXEN = 1; //enable transmit
+    U1STAbits.URXEN = 1; //enable receive
 }
-*/
+
+void uart2_init(uint16_t baud){
+    // fórmula do baud rate:
+    // FCY = F_OSCILADOR/2
+    // U2BRG = (FCY / (4 * baudrate)) - 1
+    // U2BRG = (4000000 / (4 * 62500)) - 1 = 15
+    
+    U2BRG = (uint16_t)((FCY / (4 * baud)) - 1);  
+ 
+    U2MODEbits.USIDL = 1; //disable quando idle 
+    U2MODEbits.IREN = 0; //disable InfraRed encoder
+    U2MODEbits.RTSMD = 1; //disabilita ready-to-send
+   
+    U2MODEbits.UEN0 = 0; //ready-to-send e ready-to-receive desabilitados dos pinos
+    U2MODEbits.UEN1 = 0;
+    
+    U2MODEbits.WAKE = 0; //desabilita wake no rx
+    U2MODEbits.LPBACK = 0; //desabilita loopback(?)
+    U2MODEbits.ABAUD = 0; //desabilita auto-baud
+    U2MODEbits.URXINV = 0; //sinal rx idle com '0'
+    U2MODEbits.BRGH = 1; //fast baud rate; baud = FCY/(4*(U2BRG + 1))
+    
+    //define formato dos dados
+    U2MODEbits.PDSEL0 = 0; // sem bit de paridade
+    U2MODEbits.PDSEL = 0; //8bits
+    U2MODEbits.STSEL = 0; //1 stop bit
+
+    //seta interrupt qnd ultimo bit é enviado do TSR, transmissão completa
+    U2STAbits.UTXISEL0 = 1;
+    U2STAbits.UTXISEL1 = 0;
+    
+    U2STAbits.UTXINV = 0; //idle state é 0 
+    U2STAbits.UTXBRK = 0; //desabilita sync break
+    
+    //interrupt da recepcao qnd RSR é transmitido para buffer.
+    U2STAbits.URXISEL0 = 0;
+    U2STAbits.URXISEL1 = 0;
+    
+    U2MODEbits.UARTEN = 1; // Enable UART
+    IEC1bits.U2RXIE = 1;
+    U2STAbits.UTXEN = 1; //enable transmit
+    U2STAbits.URXEN = 1; //enable receive
+}
+
+// função de interrupção UART1_RX
+void __attribute__((__interrupt__, __auto_psv__)) _U1RXInterrupt(void) {
+    
+    if(IFS0bits.U1RXIF && IEC0bits.U1RXIE){    
+        // caso dê erros na comuncação, reseta UART
+        if(U1STAbits.OERR || U1STAbits.FERR) {
+            
+            U1STAbits.OERR = 0;
+            U1STAbits.FERR = 0;
+            U1MODEbits.UARTEN = 0;
+            U1MODEbits.UARTEN = 1;
+        }
+        else {
+            // armazena mensagem na varíavel
+            char_recebido = U1RXREG;
+            // trata a mensagem
+        }   
+    }
+    // reseta flag de interrupção
+    IFS0bits.U1RXIF = 0;
+}
+
+// função de interrupção UART1_TX
+void __attribute__((__interrupt__)) _U1TXInterrupt(void)
+{
+    IFS0bits.U1TXIF = 0; // Clear TX Interrupt flag
+    U1TXREG = 'a'; // Transmit one character
+}
+
+// função de interrupção UART2_RX
+void __attribute__((__interrupt__, __auto_psv__)) _U2RXInterrupt(void) {
+    
+    if(IFS0bits.U2RXIF && IEC0bits.U2RXIE){    
+        // caso dê erros na comuncação, reseta UART
+        if(U2STAbits.OERR || U2STAbits.FERR) {
+            
+            U2STAbits.OERR = 0;
+            U2STAbits.FERR = 0;
+            U2MODEbits.UARTEN = 0;
+            U2MODEbits.UARTEN = 1;
+        }
+        else {
+            // armazena mensagem na varíavel
+            char_recebido = U2RXREG;
+            // trata a mensagem
+        }   
+    }
+    // reseta flag de interrupção
+    IFS0bits.U2RXIF = 0;
+}
+
+// função de interrupção UART2_TX
+void __attribute__((__interrupt__)) _U2TXInterrupt(void)
+{
+    IFS0bits.U2TXIF = 0; // Clear TX Interrupt flag
+    U2TXREG = 'a'; // Transmit one character
+}
+
 void __attribute__((__interrupt__, __auto_psv__)) _IOCInterrupt(void) {
     // verifica se houve mudança de estado em PORTB
     if(IOCSTATbits.IOCPBF) {
