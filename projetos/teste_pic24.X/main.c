@@ -76,7 +76,8 @@
 
 #include <xc.h>
 
-void gpioInit(void) {
+void gpioInit(void) 
+{
     // analog
     ANSA = 0x00; // todos os pinos digitais
     ANSB = 0x00; // todos os pinos digitais
@@ -101,7 +102,8 @@ void gpioInit(void) {
     PORTBbits.RB14 = 0;
 }
 
-void interruptInit(void) {
+void interruptInit(void) 
+{
     // set interrupt on-change for the dip switch
     PADCONbits.IOCON = 1;  // enable IOC functionality
     IOCPB = 0x237C;        // set inputs to change on low-to-high
@@ -110,15 +112,17 @@ void interruptInit(void) {
     IEC1bits.IOCIE = 1;    // enable IOC interrupt
 }
 
-void pin_peripheral_select(void){
+void peripheral_pin_init(void) 
+{
     //associa pinos à funcionalidade uart, UART1 e UART2
-    RPINR18bits.U1RXR = 0x0000;    // RB0  -> U1RX: UART1
-    // ver datasheet na página 228 n contrast to inputs, the outputs of the Peripheral Pin Select options are mapped on the basis of the pin...
-    RPINR19bits.U2RXR = 0x000A;    // RB10 -> U2RX: UART2
-    RPOR5bits.RP11R   = 0x0003;    // RB11 -> U2TX: UART2  
+    RPINR18bits.U1RXR = 0x0;    // RB0  -> U1RX: RP0
+    RPOR0bits.RP1R    = 0x3;    // RB1  -> U1TX: 3
+    RPINR19bits.U2RXR = 0xA;    // RB10 -> U2RX: RP10
+    RPOR5bits.RP11R   = 0x5;    // RB11 -> U2TX: 5  
 }
 
-void uart1_init(uint16_t baud){
+void uart1_init(uint16_t baud) 
+{
     // fórmula do baud rate:
     // FCY = F_OSCILADOR/2
     // U1BRG = (FCY / (4 * baudrate)) - 1
@@ -161,7 +165,8 @@ void uart1_init(uint16_t baud){
     U1STAbits.URXEN = 1; //enable receive
 }
 
-void uart2_init(uint16_t baud){
+void uart2_init(uint16_t baud) 
+{
     // fórmula do baud rate:
     // FCY = F_OSCILADOR/2
     // U2BRG = (FCY / (4 * baudrate)) - 1
@@ -205,8 +210,9 @@ void uart2_init(uint16_t baud){
 }
 
 // função de interrupção UART1_RX
-void __attribute__((__interrupt__, __auto_psv__)) _U1RXInterrupt(void) {
-    
+void __attribute__((__interrupt__, __auto_psv__)) _U1RXInterrupt(void) 
+{
+    uint8_t char_recebido;
     if(IFS0bits.U1RXIF && IEC0bits.U1RXIE){    
         // caso dê erros na comuncação, reseta UART
         if(U1STAbits.OERR || U1STAbits.FERR) {
@@ -217,6 +223,8 @@ void __attribute__((__interrupt__, __auto_psv__)) _U1RXInterrupt(void) {
             U1MODEbits.UARTEN = 1;
         }
         else {
+            // muda estado do led sempre que receber um byte
+            PORTAbits.RA0 = !LATAbits.LATA0;
             // armazena mensagem na varíavel
             char_recebido = U1RXREG;
             // trata a mensagem
@@ -226,17 +234,11 @@ void __attribute__((__interrupt__, __auto_psv__)) _U1RXInterrupt(void) {
     IFS0bits.U1RXIF = 0;
 }
 
-// função de interrupção UART1_TX
-void __attribute__((__interrupt__)) _U1TXInterrupt(void)
-{
-    IFS0bits.U1TXIF = 0; // Clear TX Interrupt flag
-    U1TXREG = 'a'; // Transmit one character
-}
-
 // função de interrupção UART2_RX
-void __attribute__((__interrupt__, __auto_psv__)) _U2RXInterrupt(void) {
-    
-    if(IFS0bits.U2RXIF && IEC0bits.U2RXIE){    
+void __attribute__((__interrupt__, __auto_psv__)) _U2RXInterrupt(void) 
+{
+    uint8_t char_recebido;
+    if(IFS1bits.U2RXIF && IEC1bits.U2RXIE){   
         // caso dê erros na comuncação, reseta UART
         if(U2STAbits.OERR || U2STAbits.FERR) {
             
@@ -246,23 +248,19 @@ void __attribute__((__interrupt__, __auto_psv__)) _U2RXInterrupt(void) {
             U2MODEbits.UARTEN = 1;
         }
         else {
+            // muda estado do led assim que receber um byte
+            PORTAbits.RA1 = !LATAbits.LATA1;
             // armazena mensagem na varíavel
             char_recebido = U2RXREG;
             // trata a mensagem
         }   
     }
     // reseta flag de interrupção
-    IFS0bits.U2RXIF = 0;
+    IFS1bits.U2RXIF = 0;
 }
 
-// função de interrupção UART2_TX
-void __attribute__((__interrupt__)) _U2TXInterrupt(void)
+void __attribute__((__interrupt__, __auto_psv__)) _IOCInterrupt(void) 
 {
-    IFS0bits.U2TXIF = 0; // Clear TX Interrupt flag
-    U2TXREG = 'a'; // Transmit one character
-}
-
-void __attribute__((__interrupt__, __auto_psv__)) _IOCInterrupt(void) {
     // verifica se houve mudança de estado em PORTB
     if(IOCSTATbits.IOCPBF) {
         // RB2
@@ -308,11 +306,33 @@ void __attribute__((__interrupt__, __auto_psv__)) _IOCInterrupt(void) {
     }
 }
 
-void main() {
+void main() 
+{
     gpioInit();
+    peripheral_pin_init();
+    uart1_init(9600);
+    uart2_init(62500);
     interruptInit();
+    uint8_t tx1_char_to_send[] = {0x1, 0x5, 0x9, 0xD};
+    uint8_t tx2_char_to_send[] = {0x2, 0x6, 0xA, 0xE};
+    uint8_t rx1_buffer[10];
+    uint8_t* ptr_rx1 = rx1_buffer;
+    uint8_t rx2_buffer[10];
+    uint8_t* ptr_rx2 = rx2_buffer;
+    uint8_t index;
     
     while(1) {
-        
+        for(index = 0; index < 4; index++)
+        {
+            U1TXREG = tx1_char_to_send[index];
+            __delay_ms(200);
+        }
+        __delay_ms(500);
+        for(index = 0; index < 4; index++)
+        {
+            U2TXREG = tx2_char_to_send[index];
+            __delay_ms(200);
+        }
+        __delay_ms(500);
     }
 }
