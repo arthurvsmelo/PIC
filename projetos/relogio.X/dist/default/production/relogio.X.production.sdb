@@ -1,0 +1,170 @@
+[p GLOBOPT AUTOSTATIC IEEE_DBL IEEE_FLT PIC14 PICREGULAR PICMID ]
+[d version 1.1 ]
+[d edition pro ]
+[d chip 16F877A ]
+[d frameptr 0 ]
+"10 C:\Program Files\Microchip\xc8\v3.00\pic\sources\c99\common\sprcadd.c
+[v ___fladd __fladd `(d  1 e 4 0 ]
+"4 C:\Program Files\Microchip\xc8\v3.00\pic\sources\c99\common\Umul8_16.c
+[v __Umul8_16 _Umul8_16 `(ui  1 e 2 0 ]
+"6 C:\Program Files\Microchip\xc8\v3.00\pic\sources\c99\pic\__eeprom.c
+[v ___eecpymem __eecpymem `(v  1 e 1 0 ]
+"39
+[v ___memcpyee __memcpyee `(v  1 e 1 0 ]
+"26 C:\Users\Arthur\PIC\projetos\relogio.X\LCD.c
+[v _pulse_enable pulse_enable `(v  1 s 1 pulse_enable ]
+"32
+[v _lcd_wait lcd_wait `(v  1 s 1 lcd_wait ]
+"46
+[v _lcd_send lcd_send `(v  1 s 1 lcd_send ]
+"59
+[v _lcd_send_command lcd_send_command `(v  1 s 1 lcd_send_command ]
+"64
+[v _lcd_send_data lcd_send_data `(v  1 s 1 lcd_send_data ]
+"70
+[v _lcd_init lcd_init `(v  1 e 1 0 ]
+"90
+[v _lcd_puts lcd_puts `(v  1 e 1 0 ]
+"97
+[v _lcd_set_cursor lcd_set_cursor `(v  1 e 1 0 ]
+"114
+[v _lcd_clear lcd_clear `(v  1 e 1 0 ]
+"168
+[v _lcd_backlight lcd_backlight `(v  1 e 1 0 ]
+"41 C:\Users\Arthur\PIC\projetos\relogio.X\main.c
+[v _main main `(v  1 e 1 0 ]
+[s S143 . 1 `uc 1 RA0 1 0 :1:0 
+`uc 1 RA1 1 0 :1:1 
+`uc 1 RA2 1 0 :1:2 
+`uc 1 RA3 1 0 :1:3 
+`uc 1 RA4 1 0 :1:4 
+`uc 1 RA5 1 0 :1:5 
+]
+"181 C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC16Fxxx_DFP/1.4.149/xc8\pic\include\proc/pic16f877a.h
+[u S150 . 1 `S143 1 . 1 0 ]
+[v _PORTAbits PORTAbits `VES150  1 e 1 @5 ]
+"216
+[v _PORTB PORTB `VEuc  1 e 1 @6 ]
+[s S83 . 1 `uc 1 RB0 1 0 :1:0 
+`uc 1 RB1 1 0 :1:1 
+`uc 1 RB2 1 0 :1:2 
+`uc 1 RB3 1 0 :1:3 
+`uc 1 RB4 1 0 :1:4 
+`uc 1 RB5 1 0 :1:5 
+`uc 1 RB6 1 0 :1:6 
+`uc 1 RB7 1 0 :1:7 
+]
+"233
+[u S92 . 1 `S83 1 . 1 0 ]
+[v _PORTBbits PORTBbits `VES92  1 e 1 @6 ]
+[s S59 . 1 `uc 1 RD0 1 0 :1:0 
+`uc 1 RD1 1 0 :1:1 
+`uc 1 RD2 1 0 :1:2 
+`uc 1 RD3 1 0 :1:3 
+`uc 1 RD4 1 0 :1:4 
+`uc 1 RD5 1 0 :1:5 
+`uc 1 RD6 1 0 :1:6 
+`uc 1 RD7 1 0 :1:7 
+]
+"357
+[u S68 . 1 `S59 1 . 1 0 ]
+[v _PORTDbits PORTDbits `VES68  1 e 1 @8 ]
+[s S126 . 1 `uc 1 TRISA0 1 0 :1:0 
+`uc 1 TRISA1 1 0 :1:1 
+`uc 1 TRISA2 1 0 :1:2 
+`uc 1 TRISA3 1 0 :1:3 
+`uc 1 TRISA4 1 0 :1:4 
+`uc 1 TRISA5 1 0 :1:5 
+]
+"1340
+[u S133 . 1 `S126 1 . 1 0 ]
+[v _TRISAbits TRISAbits `VES133  1 e 1 @133 ]
+"1375
+[v _TRISB TRISB `VEuc  1 e 1 @134 ]
+[s S105 . 1 `uc 1 TRISD0 1 0 :1:0 
+`uc 1 TRISD1 1 0 :1:1 
+`uc 1 TRISD2 1 0 :1:2 
+`uc 1 TRISD3 1 0 :1:3 
+`uc 1 TRISD4 1 0 :1:4 
+`uc 1 TRISD5 1 0 :1:5 
+`uc 1 TRISD6 1 0 :1:6 
+`uc 1 TRISD7 1 0 :1:7 
+]
+"1516
+[u S114 . 1 `S105 1 . 1 0 ]
+[v _TRISDbits TRISDbits `VES114  1 e 1 @136 ]
+"23 C:\Users\Arthur\PIC\projetos\relogio.X\LCD.c
+[v __display_control_state _display_control_state `uc  1 s 1 _display_control_state ]
+"41 C:\Users\Arthur\PIC\projetos\relogio.X\main.c
+[v _main main `(v  1 e 1 0 ]
+{
+"54
+} 0
+"97 C:\Users\Arthur\PIC\projetos\relogio.X\LCD.c
+[v _lcd_set_cursor lcd_set_cursor `(v  1 e 1 0 ]
+{
+[v lcd_set_cursor@row row `uc  1 p 1 wreg ]
+[v lcd_set_cursor@row row `uc  1 p 1 wreg ]
+[v lcd_set_cursor@col col `uc  1 p 1 4 ]
+[v lcd_set_cursor@row row `uc  1 p 1 5 ]
+"112
+} 0
+"90
+[v _lcd_puts lcd_puts `(v  1 e 1 0 ]
+{
+[v lcd_puts@s s `*.24DCuc  1 p 1 4 ]
+"95
+} 0
+"64
+[v _lcd_send_data lcd_send_data `(v  1 s 1 lcd_send_data ]
+{
+[v lcd_send_data@data data `uc  1 p 1 wreg ]
+[v lcd_send_data@data data `uc  1 p 1 wreg ]
+[v lcd_send_data@data data `uc  1 p 1 3 ]
+"67
+} 0
+"70
+[v _lcd_init lcd_init `(v  1 e 1 0 ]
+{
+"88
+} 0
+"114
+[v _lcd_clear lcd_clear `(v  1 e 1 0 ]
+{
+"116
+} 0
+"59
+[v _lcd_send_command lcd_send_command `(v  1 s 1 lcd_send_command ]
+{
+[v lcd_send_command@cmd cmd `uc  1 p 1 wreg ]
+[v lcd_send_command@cmd cmd `uc  1 p 1 wreg ]
+[v lcd_send_command@cmd cmd `uc  1 p 1 3 ]
+"62
+} 0
+"32
+[v _lcd_wait lcd_wait `(v  1 s 1 lcd_wait ]
+{
+"44
+} 0
+"46
+[v _lcd_send lcd_send `(v  1 s 1 lcd_send ]
+{
+[v lcd_send@byte byte `uc  1 p 1 wreg ]
+[v lcd_send@byte byte `uc  1 p 1 wreg ]
+[v lcd_send@mode mode `uc  1 p 1 1 ]
+[v lcd_send@byte byte `uc  1 p 1 2 ]
+"57
+} 0
+"26
+[v _pulse_enable pulse_enable `(v  1 s 1 pulse_enable ]
+{
+"30
+} 0
+"168
+[v _lcd_backlight lcd_backlight `(v  1 e 1 0 ]
+{
+[v lcd_backlight@state state `uc  1 p 1 wreg ]
+[v lcd_backlight@state state `uc  1 p 1 wreg ]
+[v lcd_backlight@state state `uc  1 p 1 0 ]
+"175
+} 0
